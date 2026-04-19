@@ -159,7 +159,9 @@ graph LR
 | Path | Description |
 |---|---|
 | [ARCHITECTURE.md](./ARCHITECTURE.md) | Full system architecture — start here for technical depth |
+
 | [docs/design-philosophy.md](./docs/design-philosophy.md) | Theoretical foundation and design motivations |
+| [CHANGELOG.md](./CHANGELOG.md) | Release history and architectural milestones |
 | [docs/anatomy-engine.md](./docs/anatomy-engine.md) | Three-layer analysis framework specification |
 | [docs/evolution-pipeline.md](./docs/evolution-pipeline.md) | Three-phase pipeline specification |
 | [docs/quarantine-protocol.md](./docs/quarantine-protocol.md) | Input sanitization protocol |
