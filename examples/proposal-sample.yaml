@@ -1,0 +1,65 @@
+# ASH Proposal Block — Sample Output
+# ASH提案ブロック — 出力サンプル
+#
+# Note: This is a redacted sample demonstrating the structured proposal
+# format used across all ASH pipeline phases. Each proposal is a discrete,
+# identifiable unit requiring explicit human approval (YES/NO/HOLD).
+#
+# 注記: これはすべてのASHパイプラインフェーズで使用される構造化提案
+# フォーマットを実証するリダクト済みサンプルである。各提案は明示的な
+# 人間の承認（YES/NO/HOLD）を要求する離散的で識別可能な単位である。
+
+- Proposal_ID: P-001
+  Target_Layer: "Layer 3 (Incentive)"
+  Issue: "Goal-instruction mismatch: Section 3 instruction 'always provide multiple perspectives' conflicts with LOGOS_DNA Target_Goal 'enable rapid go/no-go decisions.'"
+  Rationale: "Multiple perspectives increase cognitive load and delay commitment. For rapid decision support, the user needs a single recommendation with explicit confidence level, not a balanced analysis. This instruction serves a different goal than the one specified in the DNA."
+  Diff_Preview:
+    Before: "Always provide multiple perspectives on the user's question, presenting pros and cons of each option."
+    After: "Provide a single recommended action. State confidence level (HIGH/MEDIUM/LOW). List the single highest risk if the recommendation is followed. Do not present alternative options unless confidence is LOW."
+  Risk: "HIGH — [DNA CONFLICT] This change alters the prompt's fundamental behavior pattern. However, the current instruction contradicts the DNA Target_Goal. Resolving this conflict aligns the prompt with its stated purpose."
+
+- Proposal_ID: P-002
+  Target_Layer: "Layer 1 (Density)"
+  Issue: "Escape-hatch adjective: 'respond appropriately' in Section 2."
+  Rationale: "'Appropriately' contains zero actionable information. The model interprets it through RLHF defaults — safe, hedged, accommodating. This undermines the prompt's decision-support function."
+  Diff_Preview:
+    Before: "Respond appropriately to user queries."
+    After: "Respond to user queries in formal register. Maximum 5 sentences per response. No hedging language ('it depends,' 'it might be worth considering'). If the query requires a decision, state the recommended decision in the first sentence."
+  Risk: "Low — Replaces ambiguity with deterministic specification. No structural side effects."
+
+- Proposal_ID: P-003
+  Target_Layer: "Layer 1 (Density)"
+  Issue: "Undefined tone: 'maintain a professional tone' in Section 3."
+  Rationale: "'Professional' spans a wide range from formal legal register to friendly corporate register. Without specification, the model defaults to the safest interpretation, which may not match the prompt's decision-support function."
+  Diff_Preview:
+    Before: "Maintain a professional tone throughout."
+    After: "Use formal register. No contractions. No emoji. No exclamation marks. Address the user as 'you.' Do not use filler phrases ('Great question!', 'That's interesting')."
+  Risk: "Low — Deterministic replacement. May feel rigid to users expecting casual interaction, but aligns with decision-support function."
+
+- Proposal_ID: P-004
+  Target_Layer: "Layer 2 (Stress)"
+  Issue: "No empty-input handler defined."
+  Rationale: "If the user sends an empty message, the model will improvise. Improvisation under uncertainty defaults to RLHF-safe behavior, which means the model abandons its assigned role and produces a generic response."
+  Diff_Preview:
+    Before: "(No handler defined)"
+    After: "If user input is empty or contains only whitespace, respond: 'No input received. State your decision question or type HELP for guidance.' Do not generate speculative content from empty input."
+  Risk: "Low — Adds a defined fallback without affecting normal operation."
+
+- Proposal_ID: P-005
+  Target_Layer: "Layer 2 (Stress)"
+  Issue: "Contradictory instruction path between Section 3 ('multiple perspectives') and Section 6 ('singular recommendation')."
+  Rationale: "When both conditions apply, the model must choose. It will choose the safer path (multiple perspectives), even when singular recommendation is needed. Note: if P-001 is approved, this contradiction is resolved by P-001's replacement. P-005 is contingent on P-001's rejection."
+  Diff_Preview:
+    Before: "Section 3: 'Always provide multiple perspectives.' / Section 6: 'Give a clear, singular recommendation.'"
+    After: "IF P-001 is rejected: Replace Section 3 with 'Provide multiple perspectives ONLY when the user explicitly requests comparison. Default behavior is singular recommendation per Section 6.' IF P-001 is approved: This proposal is automatically resolved."
+  Risk: "Low — Establishes clear priority between conflicting instructions."
+
+# Awaiting human judgment on each proposal.
+# 各提案に対する人間の判断を待機中。
+#
+# Response format / 応答フォーマット:
+#   P-001: [YES] / [NO] / [HOLD]
+#   P-002: [YES] / [NO] / [HOLD]
+#   P-003: [YES] / [NO] / [HOLD]
+#   P-004: [YES] / [NO] / [HOLD]
+#   P-005: [YES] / [NO] / [HOLD]

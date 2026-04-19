@@ -1,0 +1,69 @@
+# License / ライセンス
+
+## Copyright
+
+© 2026 Shigechika Kurihara (栗原栄親). All Rights Reserved.
+
+## Terms / 条件
+
+### 1. Permitted Uses / 許可される使用
+
+**Personal Study and Evaluation / 個人的な学習と評価**:
+You may read, study, and evaluate the architectural specifications, design documents, and sample outputs contained in this repository for personal educational purposes.
+
+このリポジトリに含まれるアーキテクチャ仕様、設計ドキュメント、サンプル出力を個人的な教育目的で読み、学び、評価することができる。
+
+**Academic Citation / 学術的引用**:
+You may reference and cite this work in academic publications, research papers, and educational materials, provided that proper attribution is given using the citation format specified below.
+
+以下に指定される引用フォーマットを使用して適切な帰属を示すことを条件に、学術出版物、研究論文、教育資料においてこの著作物を参照し引用することができる。
+
+**Commentary and Discussion / 論評と議論**:
+You may discuss, analyze, critique, and comment on the architectural concepts and design philosophy presented in this repository in any public or private forum.
+
+このリポジトリで提示されたアーキテクチャ上の概念と設計思想を、いかなる公開または非公開のフォーラムにおいても、議論、分析、批評、コメントすることができる。
+
+### 2. Prohibited Uses / 禁止される使用
+
+**Reproduction and Distribution / 複製と配布**:
+You may not reproduce, distribute, or republish the contents of this repository, in whole or in substantial part, without prior written permission from the author.
+
+著者からの事前の書面による許可なく、このリポジトリの内容を全体またはかなりの部分において複製、配布、再出版してはならない。
+
+**Commercial Use / 商用利用**:
+You may not use the architectural specifications, design patterns, or methodologies described in this repository for commercial purposes without a separate commercial license agreement with the author.
+
+著者との別個の商用ライセンス契約なしに、このリポジトリに記述されたアーキテクチャ仕様、設計パターン、方法論を商用目的で使用してはならない。
+
+**Derivative Works / 派生作品**:
+You may not create derivative works based on the architectural specifications in this repository without prior written permission from the author. This includes, but is not limited to, implementing the described architecture in executable prompt systems.
+
+著者からの事前の書面による許可なく、このリポジトリのアーキテクチャ仕様に基づく派生作品を作成してはならない。これには、記述されたアーキテクチャを実行可能なプロンプトシステムに実装することを含むが、これに限定されない。
+
+### 3. Patent Notice / 特許に関する告知
+
+This repository provides a public architectural specification related to the author's work in generative AI alignment control. The control architectures, methodologies, and systems described or referenced herein may be the subject of pending or granted patent applications filed by the author.
+
+このリポジトリは、生成AIアライメント制御における著者の研究に関連する公開アーキテクチャ仕様を提供する。本書に記述または参照される制御アーキテクチャ、方法論、システムは、著者が出願した係属中のまたは成立した特許出願の対象であり得る。
+
+No license, express or implied, is granted under any patent claims. This repository grants no rights to practice any patented methods, systems, or architectures. Commercial use of patented methods may require a separate patent license.
+
+いかなる特許請求項の下でも、明示的または黙示的なライセンスは付与されない。このリポジトリはいかなる特許された方法、システム、アーキテクチャを実施する権利も付与しない。特許された方法の商用利用には別個の特許ライセンスが必要な場合がある。
+
+### 4. Disclaimer / 免責事項
+
+THIS REPOSITORY IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. THE AUTHOR SHALL NOT BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM THE USE OF THIS REPOSITORY.
+
+このリポジトリは、明示的または黙示的ないかなる種類の保証もなく「現状のまま」提供される。著者はこのリポジトリの使用から生じるいかなる請求、損害、その他の責任についても責任を負わない。
+
+### 5. Citation Format / 引用フォーマット
+
+When referencing this work, use the following format:
+
+この著作物を参照する際は、以下のフォーマットを使用すること：
+
+```
+Kurihara, S. (2026). Project ASH: The Logos Architecture — 
+A Framework for High-Density Prompt Solidification & Systemic Mutation.
+GitHub. https://github.com/shigechika-kuri/project-ash
+```
