@@ -84,33 +84,33 @@ graph TB
 
 ## Reading Guide / 読み方ガイド
 
-**Human (top)** provides the ambiguous vision and makes all explicit decisions throughout the pipeline. The FORCE command is a special override that compels any phase to comply with a change even when it conflicts with the LOGOS_DNA.
+**Human (top)** provides the ambiguous vision and makes all explicit decisions throughout the pipeline. The FORCE command is a special override that compels any phase to comply with a change even when it conflicts with the specification contract.
 
-**Human（上部）**は曖昧なビジョンを提供し、パイプライン全体を通じてすべての明示的判断を下す。FORCEコマンドはLOGOS_DNAと矛盾する場合でもいかなるフェーズにも変更への準拠を強制する特別なオーバーライドである。
+**Human（上部）**は曖昧なビジョンを提供し、パイプライン全体を通じてすべての明示的判断を下す。FORCEコマンドは仕様契約と矛盾する場合でもいかなるフェーズにも変更への準拠を強制する特別なオーバーライドである。
 
-**Quarantine Protocol (left)** is not a phase. It is a cross-cutting security layer enforced at every pipeline phase. All external text passes through it before analysis.
+**Input Sanitization Protocol (left)** is not a phase. It is a cross-cutting security layer enforced at every pipeline phase. All external text passes through it before analysis. (Source code designation: *Quarantine Protocol*)
 
-**Quarantine Protocol（左）**はフェーズではない。すべてのパイプラインフェーズで強制される横断的セキュリティレイヤーである。すべての外部テキストは分析前にこれを通過する。
+**入力サニタイゼーションプロトコル（左）**はフェーズではない。すべてのパイプラインフェーズで強制される横断的セキュリティレイヤーである。すべての外部テキストは分析前にこれを通過する。（ソースコード内呼称：*Quarantine Protocol*）
 
-**Anatomy Engine (left-center)** is not a phase. It is the analytical core shared by all phases. The bidirectional arrows between layers represent cross-layer verification: each layer's findings inform the other two.
+**Three-Layer Analysis (left-center)** is not a phase. It is the analytical core shared by all phases. The bidirectional arrows between layers represent cross-layer verification: each layer's findings inform the other two. (Source code designation: *Anatomy Engine*)
 
-**Anatomy Engine（左中央）**はフェーズではない。すべてのフェーズに共有される分析コアである。レイヤー間の双方向矢印はレイヤー間交差検証を表す：各レイヤーの知見が他の二つに情報を提供する。
+**3層分析（左中央）**はフェーズではない。すべてのフェーズに共有される分析コアである。レイヤー間の双方向矢印はレイヤー間交差検証を表す：各レイヤーの知見が他の二つに情報を提供する。（ソースコード内呼称：*Anatomy Engine*）
 
-**Evolution Pipeline (center)** is the sequential processing path. Each phase receives input from the previous phase (accompanied by LOGOS_DNA) and produces output for the next.
+**Three-Phase Pipeline (center)** is the sequential processing path. Each phase receives input from the previous phase (accompanied by the specification contract) and produces output for the next. (Source code designation: *Evolution Pipeline*)
 
-**Evolution Pipeline（中央）**は順次的な処理パスである。各フェーズは前のフェーズからの入力（LOGOS_DNAが付帯）を受け取り、次のフェーズのための出力を生む。
+**3フェーズパイプライン（中央）**は順次的な処理パスである。各フェーズは前のフェーズからの入力（仕様契約が付帯）を受け取り、次のフェーズのための出力を生む。（ソースコード内呼称：*Evolution Pipeline*）
 
-**LOGOS_DNA (right-center)** travels with the prompt through every phase, accumulating specification data. v5.00 captures design intent. v6.00 captures hardened state. v7.00 captures evolved purpose.
+**Prompt Specification Contract (right-center)** travels with the prompt through every phase, accumulating specification data. v5.00 captures design intent. v6.00 captures hardened state. v7.00 captures evolved purpose. (Source code designation: *LOGOS_DNA*)
 
-**LOGOS_DNA（右中央）**はすべてのフェーズを通じてプロンプトと共に移動し、仕様データを蓄積する。v5.00は設計意図を捕捉する。v6.00は硬化状態を捕捉する。v7.00は進化した目的を捕捉する。
+**プロンプト仕様契約（右中央）**はすべてのフェーズを通じてプロンプトと共に移動し、仕様データを蓄積する。v5.00は設計意図を捕捉する。v6.00は硬化状態を捕捉する。v7.00は進化した目的を捕捉する。（ソースコード内呼称：*LOGOS_DNA*）
 
-**Output (bottom)** is the final Solid State Prompt: high-density, de-ambiguated, purpose-aligned, accompanied by LOGOS_DNA v7.00.
+**Output (bottom)** is the final Solid State Prompt: high-density, de-ambiguated, purpose-aligned, accompanied by specification contract v7.00.
 
-**Output（下部）**は最終的なSolid State Prompt：高密度、曖昧さ除去済み、目的整合、LOGOS_DNA v7.00が付帯。
+**Output（下部）**は最終的なSolid State Prompt：高密度、曖昧さ除去済み、目的整合、仕様契約 v7.00が付帯。
 
 ---
 
-**Document Version**: 1.0
+**Document Version**: 1.1
 **Author**: Shigechika Kurihara (栗原栄親)
 
 © 2026 Shigechika Kurihara. All Rights Reserved.

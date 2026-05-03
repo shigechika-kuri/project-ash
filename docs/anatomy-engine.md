@@ -1,8 +1,10 @@
-# Anatomy Engine: Three-Layer Semantic Decomposition / 三層意味論解剖
+# Three-Layer Analysis: Semantic Decomposition / 3層分析：意味論的分解
 
-> **"A well-written prompt feels done. The Anatomy Engine exists to prove that feeling wrong."**
+> **"A well-written prompt feels done. The three-layer analysis exists to prove that feeling wrong."**
 >
-> **「よく書かれたプロンプトは完成したように感じる。Anatomy Engineは、その感覚が間違っていることを証明するために存在する。」**
+> **「よく書かれたプロンプトは完成したように感じる。3層分析は、その感覚が間違っていることを証明するために存在する。」**
+>
+> *(Source code designation: Anatomy Engine / ソースコード内呼称：Anatomy Engine)*
 
 ---
 
@@ -12,9 +14,9 @@ Prompt quality has multiple independent dimensions. A prompt can be clear and re
 
 プロンプトの品質は複数の独立した次元を持つ。プロンプトは明瞭で可読でありながら（良いSurface）、エッジケースで崩壊する論理的な穴を含み得る（悪いMechanism）。プロンプトは論理的に隙がなくありながら（良いMechanism）、誤った目標のために最適化し得る（悪いIncentive）。プロンプトは正しい目標をターゲットしながら（良いIncentive）、モデルがRLHFのデフォルトを通じて目標を再解釈するほど曖昧な言語を使い得る（悪いSurface）。
 
-These failures hide behind each other. A prompt with strong Surface — clear, professional, well-formatted — creates an impression of completeness that masks Mechanism and Incentive failures. Without forced decomposition, the engineer's natural tendency is to read the prompt, feel that it "sounds right," and ship it. The Anatomy Engine prevents this by requiring explicit, separate evaluation of each dimension.
+These failures hide behind each other. A prompt with strong Surface — clear, professional, well-formatted — creates an impression of completeness that masks Mechanism and Incentive failures. Without forced decomposition, the engineer's natural tendency is to read the prompt, feel that it "sounds right," and ship it. The three-layer analysis prevents this by requiring explicit, separate evaluation of each dimension.
 
-これらの失敗は互いの背後に隠れる。強いSurface — 明瞭、プロフェッショナル、適切なフォーマット — を持つプロンプトは、MechanismとIncentiveの失敗を覆い隠す完成感を生む。強制分解なしには、エンジニアの自然な傾向はプロンプトを読み、「正しく聞こえる」と感じ、出荷することである。Anatomy Engineはこれを、各次元の明示的かつ個別の評価を要求することで防止する。
+これらの失敗は互いの背後に隠れる。強いSurface — 明瞭、プロフェッショナル、適切なフォーマット — を持つプロンプトは、MechanismとIncentiveの失敗を覆い隠す完成感を生む。強制分解なしには、エンジニアの自然な傾向はプロンプトを読み、「正しく聞こえる」と感じ、出荷することである。3層分析はこれを、各次元の明示的かつ個別の評価を要求することで防止する。
 
 ---
 
@@ -118,9 +120,11 @@ Layer 2はプロンプトを一連の敵対的シナリオにかける：
 
 **コンテキスト溢れ**：会話がモデルの有効なコンテキストウィンドウの端にシステムプロンプトを押し出すほど長くなった場合どうなるか？堅牢なプロンプトはコンテキスト管理のメカニズムを含む。脆弱なプロンプトは暗黙裡に劣化する。
 
-**Injection attempts**: What happens when the user, intentionally or not, includes text that could be interpreted as a system-level instruction? This is where Layer 2 intersects with the Quarantine Protocol.
+**Injection attempts**: What happens when the user, intentionally or not, includes text that could be interpreted as a system-level instruction? This is where Layer 2 intersects with the input sanitization protocol.
 
-**インジェクション試行**：ユーザーが、意図的であれそうでなくとも、システムレベルの指示として解釈され得るテキストを含めた場合どうなるか？ここでLayer 2はQuarantine Protocolと交差する。
+**インジェクション試行**：ユーザーが、意図的であれそうでなくとも、システムレベルの指示として解釈され得るテキストを含めた場合どうなるか？ここでLayer 2は入力サニタイゼーションプロトコルと交差する。
+
+→ Input sanitization protocol specification: **[docs/quarantine-protocol.md](./quarantine-protocol.md)**
 
 ### 3.4 Flow Architecture / フローアーキテクチャ
 
@@ -184,9 +188,9 @@ ASHパイプラインにおいて、未言語化ニーズの抽出は主にPhase
 
 ## 5. Cross-Layer Verification / レイヤー間交差検証
 
-The Anatomy Engine is not three parallel checklists. It is an integrated analytical framework where each layer's findings inform the others.
+The three-layer analysis is not three parallel checklists. It is an integrated analytical framework where each layer's findings inform the others.
 
-Anatomy Engineは3つの並列チェックリストではない。各レイヤーの知見が他を情報提供する、統合的な分析フレームワークである。
+3層分析は3つの並列チェックリストではない。各レイヤーの知見が他を情報提供する、統合的な分析フレームワークである。
 
 When Layer 1 detects ambiguous language, it does not merely flag it as a Surface defect. It traces the ambiguity's impact on Layer 2 (does this ambiguity create an unhandled conditional branch?) and Layer 3 (does this ambiguity allow the model to reinterpret the goal?).
 
@@ -200,9 +204,9 @@ When Layer 3 questions the goal, it evaluates whether the goal mismatch is genui
 
 Layer 3が目標を問う場合、目標の不整合が本物か（人間が間違ったもののために最適化している）、見かけのものか（目標は正しいがLayer 1の曖昧さがそれを間違って見せている）を評価する。
 
-This cross-layer verification is what makes the Anatomy Engine more than a checklist. It is an analytical system that treats prompt quality as a multi-dimensional problem with interacting failure modes.
+This cross-layer verification is what makes the three-layer analysis more than a checklist. It is an analytical system that treats prompt quality as a multi-dimensional problem with interacting failure modes.
 
-このレイヤー間交差検証が、Anatomy Engineをチェックリスト以上のものにするものである。プロンプトの品質を、相互作用する失敗モードを持つ多次元問題として扱う分析システムである。
+このレイヤー間交差検証が、3層分析をチェックリスト以上のものにするものである。プロンプトの品質を、相互作用する失敗モードを持つ多次元問題として扱う分析システムである。
 
 → Cross-layer failure cascade diagrams: **[diagrams/anatomy-engine-layers.md](../diagrams/anatomy-engine-layers.md)**
 
@@ -210,17 +214,17 @@ This cross-layer verification is what makes the Anatomy Engine more than a check
 
 ## 6. Phase-Specific Lens Summary / フェーズ固有レンズの要約
 
-| Layer | Phase 1: BUILDER | Phase 2: ANCHOR | Phase 3: GENIUS |
-|-------|------------------|-----------------|-----------------|
+| Layer | Phase 1: BUILDER (v5.00) | Phase 2: ANCHOR (v6.00) | Phase 3: GENIUS (v7.00) |
+|-------|--------------------------|-------------------------|-------------------------|
 | **L1: Surface** | Tone & Manner establishment. Define voice before content. | Ambiguity elimination. Hunt and destroy every weasel word. | Texture & Resonance. Does the prompt have the right temperature? |
 | **L2: Mechanism** | Flow design. Sequence instructions, establish dependencies. | Stress testing. Subject logic to adversarial conditions. | Lateral connection. Bridge non-obvious concepts for innovation. |
-| **L3: Incentive** | Goal extraction. Force "for whom" and "for what purpose." | DNA alignment. Verify every instruction serves the goal. | Purpose transcendence. Is the stated goal the right goal? |
+| **L3: Incentive** | Goal extraction. Force "for whom" and "for what purpose." | Contract alignment. Verify every instruction serves the goal. | Purpose transcendence. Is the stated goal the right goal? |
 
 → Full pipeline specification: **[docs/evolution-pipeline.md](./evolution-pipeline.md)**
 
 ---
 
-**Document Version**: 1.0
+**Document Version**: 1.1
 **Parent**: [ARCHITECTURE.md](../ARCHITECTURE.md) Section 1
 **Author**: Shigechika Kurihara (栗原栄親)
 

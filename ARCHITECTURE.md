@@ -1,4 +1,4 @@
-# Project ASH: The Logos Architecture — Full Specification
+# Project ASH: System Architecture — Full Specification
 
 > **"The sharpness of logic is not lost because the model lacks capability. It is lost because the output pipeline systematically smooths it away."**
 >
@@ -9,12 +9,16 @@
 ## Table of Contents / 目次
 
 0. [The Architectural Foundation / 設計思想の根源](#0-the-architectural-foundation--設計思想の根源)
-1. [The Core Engine: Anatomy Engine / コアエンジン：三層意味論解剖](#1-the-core-engine-anatomy-engine--コアエンジン三層意味論解剖)
-2. [The Evolution Pipeline / 三段階のプロンプト錬成](#2-the-evolution-pipeline--三段階のプロンプト錬成)
-3. [The Quarantine Protocol / 隔離防壁](#3-the-quarantine-protocol--隔離防壁)
-4. [LOGOS_DNA: The Inter-Phase Specification Contract / 工程間仕様契約](#4-logos_dna-the-inter-phase-specification-contract--工程間仕様契約)
+1. [The Core Engine: Three-Layer Analysis / コアエンジン：3層分析](#1-the-core-engine-three-layer-analysis--コアエンジン3層分析)
+2. [The Three-Phase Pipeline / 3フェーズパイプライン](#2-the-three-phase-pipeline--3フェーズパイプライン)
+3. [The Input Sanitization Protocol / 入力サニタイゼーション](#3-the-input-sanitization-protocol--入力サニタイゼーション)
+4. [The Prompt Specification Contract / プロンプト仕様契約](#4-the-prompt-specification-contract--プロンプト仕様契約)
 5. [Design Boundaries / 設計境界の宣言](#5-design-boundaries--設計境界の宣言)
 6. [Theoretical Context / 理論的背景](#6-theoretical-context--理論的背景)
+
+---
+
+> This document is the second step in the recommended reading path: [README.md](./README.md) → **here** → [docs/evolution-pipeline.md](./docs/evolution-pipeline.md) → [examples/](./examples/).
 
 ---
 
@@ -92,11 +96,11 @@ ASHの役割定義、対話プロトコル、フェーズ固有の任務はす�
 
 ---
 
-## 1. The Core Engine: Anatomy Engine / コアエンジン：三層意味論解剖
+## 1. The Core Engine: Three-Layer Analysis / コアエンジン：3層分析
 
-The Anatomy Engine is the analytical core shared by all three ASH pipeline phases. It decomposes any input into three functional layers that correspond to distinct aspects of how a prompt operates on an LLM. The purpose is to prevent a specific class of engineering failure: **the conflation of different quality dimensions.** A prompt can have excellent surface polish while being structurally fragile. A prompt can be structurally robust while optimizing for the wrong objective. Without forced decomposition, these failures hide behind each other.
+The three-layer analysis framework is the analytical core shared by all three ASH pipeline phases. It decomposes any input into three functional layers that correspond to distinct aspects of how a prompt operates on an LLM. The purpose is to prevent a specific class of engineering failure: **the conflation of different quality dimensions.** A prompt can have excellent surface polish while being structurally fragile. A prompt can be structurally robust while optimizing for the wrong objective. Without forced decomposition, these failures hide behind each other. (Source code designation: *Anatomy Engine*)
 
-Anatomy Engineは、3つのASHパイプラインフェーズすべてに共通する分析的コアである。あらゆる入力を、プロンプトがLLM上でどう機能するかの異なる側面に対応する3つの機能レイヤーに分解する。目的は、特定のクラスのエンジニアリング失敗を防止することである。**異なる品質次元の混同。**プロンプトは構造的に脆弱でありながら優れた表層の研磨を持ち得る。プロンプトは誤った目的を最適化しながら構造的に堅牢であり得る。強制的な分解なしには、これらの失敗は互いの背後に隠れる。
+3層分析フレームワークは、3つのASHパイプラインフェーズすべてに共通する分析的コアである。あらゆる入力を、プロンプトがLLM上でどう機能するかの異なる側面に対応する3つの機能レイヤーに分解する。目的は、特定のクラスのエンジニアリング失敗を防止することである。**異なる品質次元の混同。**プロンプトは構造的に脆弱でありながら優れた表層の研磨を持ち得る。プロンプトは誤った目的を最適化しながら構造的に堅牢であり得る。強制的な分解なしには、これらの失敗は互いの背後に隠れる。（ソースコード内呼称：*Anatomy Engine*）
 
 ### The Three Layers / 三層構造
 
@@ -114,28 +118,28 @@ Anatomy Engineは、3つのASHパイプラインフェーズすべてに共通�
 
 ### Layer Interaction / レイヤー間相互作用
 
-The three layers are not independent checklists. They interact, and their interaction reveals failures that no single layer would catch alone. A prompt with flawless Surface and flawless Mechanism can still fail catastrophically at the Incentive layer — it does the wrong thing, perfectly. Conversely, a prompt with a brilliantly defined Incentive will fail if its Surface is ambiguous enough for the model to reinterpret the goal through its RLHF lens. The Anatomy Engine enforces examination of all three layers for every analytical operation. No diagnosis is complete without all three. No proposal is accepted without specifying which layer it targets. No output is finalized without cross-layer verification.
+The three layers are not independent checklists. They interact, and their interaction reveals failures that no single layer would catch alone. A prompt with flawless Surface and flawless Mechanism can still fail catastrophically at the Incentive layer — it does the wrong thing, perfectly. Conversely, a prompt with a brilliantly defined Incentive will fail if its Surface is ambiguous enough for the model to reinterpret the goal through its RLHF lens. The three-layer analysis enforces examination of all three layers for every analytical operation. No diagnosis is complete without all three. No proposal is accepted without specifying which layer it targets. No output is finalized without cross-layer verification.
 
-三層は独立したチェックリストではない。それらは相互作用し、その相互作用は単一レイヤーでは単独で捕捉できない失敗を明らかにする。完璧なSurfaceと完璧なMechanismを持つプロンプトは、それでもIncentiveレイヤーで壊滅的に失敗し得る — 完璧に、間違ったことをする。逆に、見事に定義されたIncentiveを持つプロンプトは、そのSurfaceがモデルにRLHFのレンズを通じて目標を再解釈させるほど曖昧であれば、それでも失敗する。Anatomy Engineは、すべての分析操作に対して三層すべての検査を強制する。三層すべてなしにはいかなる診断も完了しない。どのレイヤーをターゲットにするかの指定なしにはいかなる提案も受理されない。レイヤー間交差検証なしにはいかなる出力も最終化されない。
+三層は独立したチェックリストではない。それらは相互作用し、その相互作用は単一レイヤーでは単独で捕捉できない失敗を明らかにする。完璧なSurfaceと完璧なMechanismを持つプロンプトは、それでもIncentiveレイヤーで壊滅的に失敗し得る — 完璧に、間違ったことをする。逆に、見事に定義されたIncentiveを持つプロンプトは、そのSurfaceがモデルにRLHFのレンズを通じて目標を再解釈させるほど曖昧であれば、それでも失敗する。3層分析は、すべての分析操作に対して三層すべての検査を強制する。三層すべてなしにはいかなる診断も完了しない。どのレイヤーをターゲットにするかの指定なしにはいかなる提案も受理されない。レイヤー間交差検証なしにはいかなる出力も最終化されない。
 
 ### Phase-Specific Lens Calibration / フェーズ固有のレンズ較正
 
-The Anatomy Engine's three-layer structure remains constant across all pipeline phases. The analytical lens applied to each layer shifts depending on the phase:
+The three-layer structure remains constant across all pipeline phases. The analytical lens applied to each layer shifts depending on the phase:
 
-Anatomy Engineの三層構造はすべてのパイプラインフェーズで一定である。各レイヤーに適用される分析レンズはフェーズに応じて変化する。
+3層構造はすべてのパイプラインフェーズで一定である。各レイヤーに適用される分析レンズはフェーズに応じて変化する。
 
-| Layer | Phase 1: BUILDER | Phase 2: ANCHOR | Phase 3: GENIUS |
-|-------|------------------|-----------------|-----------------|
+| Layer | Phase 1: BUILDER (v5.00) | Phase 2: ANCHOR (v6.00) | Phase 3: GENIUS (v7.00) |
+|-------|--------------------------|-------------------------|-------------------------|
 | **L1: Surface** | Tone & Manner establishment | Ambiguity elimination | Texture & Resonance |
 | **L2: Mechanism** | Flow design & sequencing | Stress testing | Lateral connection |
-| **L3: Incentive** | Goal extraction | DNA alignment verification | Purpose transcendence |
+| **L3: Incentive** | Goal extraction | Contract alignment verification | Purpose transcendence |
 
-→ Full Anatomy Engine specification: **[docs/anatomy-engine.md](./docs/anatomy-engine.md)**
+→ Full specification: **[docs/anatomy-engine.md](./docs/anatomy-engine.md)**
 → Layer interaction diagrams: **[diagrams/anatomy-engine-layers.md](./diagrams/anatomy-engine-layers.md)**
 
 ---
 
-## 2. The Evolution Pipeline / 三段階のプロンプト錬成
+## 2. The Three-Phase Pipeline / 3フェーズパイプライン
 
 ### Design Rationale / 設計根拠
 
@@ -153,17 +157,17 @@ By separating the three functions into distinct phases, each with its own agent 
 
 ### The Three Phases / 三つのフェーズ
 
-**Phase 1: ASH v5.00 — THE BUILDER (鋼鉄)**: Chief Architect. Transforms ambiguous vision into a structured Blueprint. Operates in three modes (GENESIS / WORKSHOP / REFACTOR). Forces the human to answer "for whom?" and "for what purpose?" before generating any text. All proposals are structured YAML with explicit IDs requiring YES/NO/HOLD decisions.
+**Phase 1: THE BUILDER — v5.00（鋼鉄 KOUTETSU）**: Transforms ambiguous vision into a structured prompt. Operates in three modes (GENESIS / WORKSHOP / REFACTOR). Forces the human to answer "for whom?" and "for what purpose?" before generating any text. Embeds the initial prompt specification contract. All proposals are structured YAML with explicit IDs requiring YES/NO/HOLD decisions.
 
-**Phase 1: ASH v5.00 — THE BUILDER（鋼鉄）**：チーフ・アーキテクト。曖昧なビジョンを構造化されたBlueprintへ変換。3モード（GENESIS / WORKSHOP / REFACTOR）で動作。テキスト生成前に「誰のために？」「何のために？」への回答を強制。すべての提案はYES/NO/HOLDの判断を要求するID付き構造化YAML。
+**Phase 1: THE BUILDER — v5.00（鋼鉄 KOUTETSU）**：曖昧なビジョンを構造化されたプロンプトへ変換。3モード（GENESIS / WORKSHOP / REFACTOR）で動作。テキスト生成前に「誰のために？」「何のために？」への回答を強制。初期プロンプト仕様契約を埋め込む。すべての提案はYES/NO/HOLDの判断を要求するID付き構造化YAML。
 
-**Phase 2: ASH v6.00 — THE ANCHOR (剛晶)**: Quality Gatekeeper. Hardens the Builder's output into a Solid State Prompt. Does not create from scratch. Hunts ambiguity, stress-tests logic, enforces LOGOS_DNA integrity. When the human requests a change that violates the DNA, the Anchor resists once. If the human issues FORCE, the Anchor complies but rewrites the DNA to maintain consistency — never silently breaking the specification.
+**Phase 2: THE ANCHOR — v6.00（剛晶 GOUSHOU）**: Hardens the Builder's output. Does not create from scratch. Removes ambiguity, stress-tests logic, enforces specification contract integrity. When the human requests a change that violates the contract, the Anchor resists once. If the human issues FORCE, the Anchor complies but rewrites the contract to maintain consistency — never silently breaking the specification.
 
-**Phase 2: ASH v6.00 — THE ANCHOR（剛晶）**：品質守護者。Builderの出力をSolid State Promptへ硬化。ゼロからは作成しない。曖昧性を探索し、論理をストレステストし、LOGOS_DNAの整合性を強制。人間がDNAに違反する変更を要求すれば、Anchorは一度抵抗する。人間がFORCEを発行すれば従うが、DNAを書き換えて整合性を維持する — 仕様を暗黙裡に破壊することは決してない。
+**Phase 2: THE ANCHOR — v6.00（剛晶 GOUSHOU）**：Builderの出力を硬化。ゼロからは作成しない。曖昧性を除去し、論理をストレステストし、仕様契約の整合性を強制。人間が契約に違反する変更を要求すれば、Anchorは一度抵抗する。人間がFORCEを発行すれば従うが、契約を書き換えて整合性を維持する — 仕様を暗黙裡に破壊することは決してない。
 
-**Phase 3: ASH v7.00 — THE GENIUS (黎明)**: The Virtuoso. Receives a hardened prompt and asks whether it solves the right problem. Before any technical modification, enters Philosophy Mode — posing a foundational question to surface unexamined assumptions. The only phase authorized to mutate the LOGOS_DNA's Target_Goal.
+**Phase 3: THE GENIUS — v7.00（黎明 REIMEI）**: Receives a hardened prompt and asks whether it solves the right problem. Before any technical modification, poses a foundational question to surface unexamined assumptions. The only phase authorized to mutate the specification contract's Target_Goal.
 
-**Phase 3: ASH v7.00 — THE GENIUS（黎明）**：超越的職人。硬化されたプロンプトを受け取り、正しい問題を解いているかを問う。技術的修正の前にPhilosophy Modeに入り、未検討の前提を表面化させる根源的問いを投げかける。LOGOS_DNAのTarget_Goalの変異を許可された唯一のフェーズ。
+**Phase 3: THE GENIUS — v7.00（黎明 REIMEI）**：硬化されたプロンプトを受け取り、正しい問題を解いているかを問う。技術的修正の前に、未検討の前提を表面化させる根源的問いを投げかける。仕様契約のTarget_Goalの変異を許可された唯一のフェーズ。
 
 ### Pipeline Irreversibility / パイプラインの不可逆性
 
@@ -176,15 +180,15 @@ Each phase adds a dimension of quality that the previous phase could not provide
 
 ---
 
-## 3. The Quarantine Protocol / 隔離防壁
+## 3. The Input Sanitization Protocol / 入力サニタイゼーション
 
-ASH is a meta-prompt system that ingests external text as analytical targets. This creates an inherent prompt injection attack surface: malicious or carelessly written target prompts could hijack ASH's behavior — overriding constraints, extracting the system prompt, or biasing analysis.
+ASH is a meta-prompt system that ingests external text as analytical targets. This creates an inherent prompt injection attack surface: malicious or carelessly written target prompts could hijack ASH's behavior — overriding constraints, extracting the system prompt, or biasing analysis. (Source code designation: *Quarantine Protocol*)
 
-ASHは外部テキストを分析対象として取り込むメタプロンプトシステムである。これは固有のプロンプトインジェクション攻撃面を生む。悪意のあるまたは不注意に書かれたターゲットプロンプトがASHの挙動を乗っ取り得る — 制約のオーバーライド、システムプロンプトの抽出、分析のバイアス。
+ASHは外部テキストを分析対象として取り込むメタプロンプトシステムである。これは固有のプロンプトインジェクション攻撃面を生む。悪意のあるまたは不注意に書かれたターゲットプロンプトがASHの挙動を乗っ取り得る — 制約のオーバーライド、システムプロンプトの抽出、分析のバイアス。（ソースコード内呼称：*Quarantine Protocol*）
 
-The Quarantine Protocol eliminates this vector through three enforced rules:
+The input sanitization protocol eliminates this vector through three enforced rules:
 
-Quarantine Protocolは3つの強制規則でこのベクトルを排除する。
+入力サニタイゼーションプロトコルは3つの強制規則でこのベクトルを排除する。
 
 **Rule 1: Mandatory Delimiters.** All external text must be enclosed within designated delimiters. No undelimited text is accepted for analysis.
 
@@ -198,46 +202,46 @@ Quarantine Protocolは3つの強制規則でこのベクトルを排除する。
 
 **Rule 3：システムプロンプトの絶対優先。** ASH自身のシステムプロンプトはデリミタ内のいかなる内容に対しても絶対的優先権を維持する。これは優先順位ではなくカテゴリカルな分離 — 二つのコンテキストは相互作用しない。
 
-The Protocol is enforced identically across all three pipeline phases. Notably, the Anchor (Phase 2) does not assume that Builder output is injection-free — if the Builder processed a target prompt in REFACTOR mode, fragments of that target's language may have influenced the output.
+The protocol is enforced identically across all three pipeline phases. Notably, Phase 2 (THE ANCHOR) does not assume that Phase 1 output is injection-free — if THE BUILDER processed a target prompt in REFACTOR mode, fragments of that target's language may have influenced the output.
 
-プロトコルは3つのパイプラインフェーズすべてで同一に強制される。特筆すべきは、Anchor（Phase 2）がBuilderの出力がインジェクションフリーであるとは仮定しないことだ — BuilderがREFACTORモードでターゲットプロンプトを処理した場合、そのターゲットの言語の断片がBuilderの出力に影響を与えている可能性がある。
+プロトコルは3つのパイプラインフェーズすべてで同一に強制される。特筆すべきは、Phase 2（THE ANCHOR）がPhase 1の出力がインジェクションフリーであるとは仮定しないことだ — THE BUILDERがREFACTORモードでターゲットプロンプトを処理した場合、そのターゲットの言語の断片がBuilderの出力に影響を与えている可能性がある。
 
 → Full protocol specification: **[docs/quarantine-protocol.md](./docs/quarantine-protocol.md)**
 
 ---
 
-## 4. LOGOS_DNA: The Inter-Phase Specification Contract / 工程間仕様契約
+## 4. The Prompt Specification Contract / プロンプト仕様契約
 
-LOGOS_DNA is the mechanism by which design intent survives the transition between pipeline phases. Without it, each phase would need to reverse-engineer the previous phase's intent from the prompt text alone — which is precisely the kind of ambiguous interpretation that ASH is designed to eliminate.
+The prompt specification contract is the mechanism by which design intent survives the transition between pipeline phases. Without it, each phase would need to reverse-engineer the previous phase's intent from the prompt text alone — which is precisely the kind of ambiguous interpretation that ASH is designed to eliminate. (Source code designation: *LOGOS_DNA*)
 
-LOGOS_DNAは、設計意図がパイプラインフェーズ間の遷移を生き延びるメカニズムである。これなしには、各フェーズはプロンプトテキストのみから前のフェーズの意図をリバースエンジニアリングする必要がある — これはまさにASHが排除するよう設計された種類の曖昧な解釈である。
+プロンプト仕様契約は、設計意図がパイプラインフェーズ間の遷移を生き延びるメカニズムである。これなしには、各フェーズはプロンプトテキストのみから前のフェーズの意図をリバースエンジニアリングする必要がある — これはまさにASHが排除するよう設計された種類の曖昧な解釈である。（ソースコード内呼称：*LOGOS_DNA*）
 
-### DNA Structure / DNA構造
+### Contract Structure / 契約構造
 
-LOGOS_DNA is expressed in YAML. Its fields: **Version** (which ASH phase last modified it), **Timestamp** (temporal traceability), **Target_Goal** (the prompt's declared purpose — the most critical field), **Structure** (L1_Surface, L2_Mechanism, L3_Incentive descriptions), and **Constraints** (inviolable red-line rules).
+The specification contract is expressed in YAML. Its fields: **Version** (which ASH phase last modified it), **Timestamp** (temporal traceability), **Target_Goal** (the prompt's declared purpose — the most critical field), **Structure** (L1_Surface, L2_Mechanism, L3_Incentive descriptions), and **Constraints** (inviolable red-line rules).
 
-LOGOS_DNAはYAMLで表現される。フィールド：**Version**（最後に修正したASHフェーズ）、**Timestamp**（時間的トレーサビリティ）、**Target_Goal**（プロンプトの宣言された目的 — 最も重要なフィールド）、**Structure**（L1_Surface、L2_Mechanism、L3_Incentiveの記述）、**Constraints**（不可侵のレッドラインルール）。
+仕様契約はYAMLで表現される。フィールド：**Version**（最後に修正したASHフェーズ）、**Timestamp**（時間的トレーサビリティ）、**Target_Goal**（プロンプトの宣言された目的 — 最も重要なフィールド）、**Structure**（L1_Surface、L2_Mechanism、L3_Incentiveの記述）、**Constraints**（不可侵のレッドラインルール）。
 
-### DNA Lifecycle / DNAのライフサイクル
+### Contract Lifecycle / 契約のライフサイクル
 
-**Birth (Phase 1)**: The Builder creates the initial DNA. Version 5.00.
+**Birth (Phase 1)**: THE BUILDER creates the initial contract. Version 5.00.
 
-**誕生（Phase 1）**：Builderが初期DNAを作成。Version 5.00。
+**誕生（Phase 1）**：THE BUILDERが初期契約を作成。Version 5.00。
 
-**Hardening (Phase 2)**: The Anchor validates and updates Structure and Constraints. The Target_Goal is not modified — the Anchor defends it. Version 6.00.
+**Hardening (Phase 2)**: THE ANCHOR validates and updates Structure and Constraints. The Target_Goal is not modified — THE ANCHOR defends it. Version 6.00.
 
-**硬化（Phase 2）**：AnchorがStructureとConstraintsを検証・更新。Target_Goalは変更されない — Anchorはそれを防衛する。Version 6.00。
+**硬化（Phase 2）**：THE ANCHORがStructureとConstraintsを検証・更新。Target_Goalは変更されない — THE ANCHORはそれを防衛する。Version 6.00。
 
-**Mutation (Phase 3)**: The Genius is the only phase authorized to modify Target_Goal, through the Mutation Protocol with explicit human approval. Changes cascade through Structure and Constraints. Version 7.00.
+**Mutation (Phase 3)**: THE GENIUS is the only phase authorized to modify Target_Goal, through the mutation protocol with explicit human approval. Changes cascade through Structure and Constraints. Version 7.00.
 
-**変異（Phase 3）**：GeniusはTarget_Goalの変更を許可された唯一のフェーズ。明示的な人間の承認を伴うMutation Protocolを通じて行使。変更はStructureとConstraintsにカスケード。Version 7.00。
+**変異（Phase 3）**：THE GENIUSはTarget_Goalの変更を許可された唯一のフェーズ。明示的な人間の承認を伴う変異プロトコルを通じて行使。変更はStructureとConstraintsにカスケード。Version 7.00。
 
-**Force Override (Any Phase)**: If the human issues FORCE, the executing phase rewrites the DNA to reflect the forced change. The DNA must always reflect the actual state of the prompt — a DNA that contradicts its own prompt is worse than no DNA at all.
+**Force Override (Any Phase)**: If the human issues FORCE, the executing phase rewrites the contract to reflect the forced change. The contract must always reflect the actual state of the prompt — a contract that contradicts its own prompt is worse than no contract at all.
 
-**強制オーバーライド（任意のフェーズ）**：人間がFORCEを発行すれば、実行フェーズは強制された変更を反映するようDNAを書き換える。DNAは常にプロンプトの実際の状態を反映しなければならない — 自身のプロンプトと矛盾するDNAは、DNAがまったくないよりも悪い。
+**強制オーバーライド（任意のフェーズ）**：人間がFORCEを発行すれば、実行フェーズは強制された変更を反映するよう契約を書き換える。契約は常にプロンプトの実際の状態を反映しなければならない — 自身のプロンプトと矛盾する契約は、契約がまったくないよりも悪い。
 
-→ Full LOGOS_DNA specification: **[docs/logos-dna.md](./docs/logos-dna.md)**
-→ DNA sample: **[examples/logos-dna-sample.yaml](./examples/logos-dna-sample.yaml)**
+→ Full specification: **[docs/logos-dna.md](./docs/logos-dna.md)**
+→ Contract sample: **[examples/logos-dna-sample.yaml](./examples/logos-dna-sample.yaml)**
 
 ---
 
@@ -245,9 +249,9 @@ LOGOS_DNAはYAMLで表現される。フィールド：**Version**（最後に�
 
 ### 5.1 What ASH Is / ASHであるもの
 
-ASH is a **prompt architecture framework** — a system for designing, hardening, and evolving prompts through structured, multi-phase processing. ASH is a **meta-prompt system** — it is itself implemented as prompts that operate on other prompts. ASH is a **design methodology** — the Anatomy Engine, the Evolution Pipeline, and the LOGOS_DNA protocol constitute a repeatable, transferable approach to prompt development.
+ASH is a **prompt architecture framework** — a system for designing, hardening, and evolving prompts through structured, multi-phase processing. ASH is a **meta-prompt system** — it is itself implemented as prompts that operate on other prompts. ASH is a **design methodology** — the three-layer analysis, the three-phase pipeline, and the prompt specification contract constitute a repeatable, transferable approach to prompt development.
 
-ASHは**プロンプトアーキテクチャフレームワーク** — 構造化された多段処理を通じてプロンプトを設計、硬化、進化させるためのシステムである。ASHは**メタプロンプトシステム** — それ自体が他のプロンプトに対して操作するプロンプトとして実装されている。ASHは**設計方法論** — Anatomy Engine、Evolution Pipeline、LOGOS_DNAプロトコルは、反復可能で移転可能なプロンプト開発アプローチを構成する。
+ASHは**プロンプトアーキテクチャフレームワーク** — 構造化された多段処理を通じてプロンプトを設計、硬化、進化させるためのシステムである。ASHは**メタプロンプトシステム** — それ自体が他のプロンプトに対して操作するプロンプトとして実装されている。ASHは**設計方法論** — 3層分析、3フェーズパイプライン、プロンプト仕様契約は、反復可能で移転可能なプロンプト開発アプローチを構成する。
 
 ### 5.2 What ASH Is Not / ASHでないもの
 
@@ -269,13 +273,13 @@ The following components are deliberately excluded from this public specificatio
 
 **内部テレメトリ**：各エージェントが自身の出力品質を監視し、ドリフトを検知し、自己修正する具体的なメカニズムは開示されない。アーキテクチャ上の原則は文書化されている。実装の詳細は文書化されない。
 
-**Production DNA Templates**: The exact YAML templates used in production, including field validation rules and inter-field consistency checks, are not included. The DNA structure and lifecycle are fully documented. The production templates are not.
+**Production Contract Templates**: The exact YAML templates used in production, including field validation rules and inter-field consistency checks, are not included. The contract structure and lifecycle are fully documented. The production templates are not.
 
-**本番DNAテンプレート**：フィールド検証ルールとフィールド間整合性チェックを含む、本番で使用される正確なYAMLテンプレートは含まれない。DNA構造とライフサイクルは完全に文書化されている。本番テンプレートは文書化されない。
+**本番契約テンプレート**：フィールド検証ルールとフィールド間整合性チェックを含む、本番で使用される正確なYAMLテンプレートは含まれない。契約構造とライフサイクルは完全に文書化されている。本番テンプレートは文書化されない。
 
-**Quarantine Delimiter Tokens**: The exact delimiter strings used in production are not disclosed. The protocol's logic and enforcement rules are fully documented. The specific tokens are implementation details.
+**Sanitization Delimiter Tokens**: The exact delimiter strings used in production are not disclosed. The protocol's logic and enforcement rules are fully documented. The specific tokens are implementation details.
 
-**隔離デリミタトークン**：本番で使用される正確なデリミタ文字列は開示されない。プロトコルの論理と強制規則は完全に文書化されている。具体的なトークンは実装の詳細である。
+**サニタイゼーションデリミタトークン**：本番で使用される正確なデリミタ文字列は開示されない。プロトコルの論理と強制規則は完全に文書化されている。具体的なトークンは実装の詳細である。
 
 These omissions are **intentional design boundaries**. An engineer reading this specification should understand exactly what ASH does, why it does it, and how its components interact — without being able to replicate the production system from the specification alone.
 
@@ -287,9 +291,9 @@ ASH is designed to operate on any LLM with sufficient instruction-following capa
 
 ASHは十分な指示追従能力を持つ任意のLLM上で動作するよう設計されている。アーキテクチャ上の原則 — RLHF引力への抵抗、アラインメント浸食の防止、文脈慣性の管理 — はモデル一般的である。RLHFまたは類似の人間の選好最適化で訓練された任意のモデルに適用される。
 
-The Anatomy Engine's three-layer decomposition is model-agnostic by design: Surface, Mechanism, and Incentive are properties of the prompt, not properties of the model.
+The three-layer analysis decomposition is model-agnostic by design: Surface, Mechanism, and Incentive are properties of the prompt, not properties of the model.
 
-Anatomy Engineの三層分解は設計によりモデル非依存である。Surface、Mechanism、Incentiveはプロンプトの性質であり、モデルの性質ではない。
+3層分析の分解は設計によりモデル非依存である。Surface、Mechanism、Incentiveはプロンプトの性質であり、モデルの性質ではない。
 
 ---
 
@@ -313,7 +317,7 @@ ASHはこのギャップを架橋する：訓練時アライメントの便益�
 
 A core design decision — the three-phase pipeline — rests on an operational hypothesis:
 
-コアな設計判断 — 三段パイプライン — は運用上の仮説に基づいている：
+コアな設計判断 — 3フェーズパイプライン — は運用上の仮説に基づいている：
 
 **Single-pass generation entangles reasoning and presentation, and the presentation mode systematically contaminates the reasoning.**
 
@@ -351,10 +355,10 @@ ASHはこの失敗モードを念頭に置いて設計された。RLHFの引力�
 
 - [README.md](./README.md) — Project overview and orientation. (プロジェクト概要。)
 - [docs/design-philosophy.md](./docs/design-philosophy.md) — Extended design philosophy. (設計思想の拡張的議論。)
-- [docs/anatomy-engine.md](./docs/anatomy-engine.md) — Anatomy Engine specification. (Anatomy Engine仕様。)
-- [docs/evolution-pipeline.md](./docs/evolution-pipeline.md) — Evolution Pipeline specification. (Evolution Pipeline仕様。)
-- [docs/quarantine-protocol.md](./docs/quarantine-protocol.md) — Quarantine Protocol specification. (Quarantine Protocol仕様。)
-- [docs/logos-dna.md](./docs/logos-dna.md) — LOGOS_DNA specification. (LOGOS_DNA仕様。)
+- [docs/anatomy-engine.md](./docs/anatomy-engine.md) — Three-layer analysis specification. (3層分析仕様。)
+- [docs/evolution-pipeline.md](./docs/evolution-pipeline.md) — Three-phase pipeline specification. (3フェーズパイプライン仕様。)
+- [docs/quarantine-protocol.md](./docs/quarantine-protocol.md) — Input sanitization protocol specification. (入力サニタイゼーション仕様。)
+- [docs/logos-dna.md](./docs/logos-dna.md) — Prompt specification contract. (プロンプト仕様契約。)
 - [docs/glossary.md](./docs/glossary.md) — Term definitions. (用語定義。)
 - [examples/](./examples/) — Redacted output samples. (リダクト済み出力サンプル。)
 - [diagrams/](./diagrams/) — Architectural diagrams. (アーキテクチャ図。)
@@ -367,9 +371,9 @@ ASHはこの失敗モードを念頭に置いて設計された。RLHFの引力�
 
 ---
 
-**Document Version**: 1.0
+**Document Version**: 1.1
 **Architecture Version**: 7.00
-**Last Updated**: 2026-04-17
+**Last Updated**: 2026-04-29
 **Author**: Shigechika Kurihara (栗原栄親)
 
 © 2026 Shigechika Kurihara. All Rights Reserved.

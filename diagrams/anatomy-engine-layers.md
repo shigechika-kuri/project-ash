@@ -1,8 +1,10 @@
-# Anatomy Engine: Layer Structure / Anatomy Engine：レイヤー構造図
+# Three-Layer Analysis: Layer Structure / 3層分析：レイヤー構造図
 
 > **How the three layers interact, and how their analytical focus shifts across pipeline phases.**
 >
 > **三層がどう相互作用し、分析の焦点がパイプラインフェーズ間でどう変化するか。**
+>
+> *(Source code designation: Anatomy Engine / ソースコード内呼称：Anatomy Engine)*
 
 ---
 
@@ -31,9 +33,9 @@ graph TB
 
 ## Cross-Layer Failure Cascades / レイヤー間の失敗カスケード
 
-The six arrows in the diagram above represent the six cross-layer failure paths that the Anatomy Engine traces during every analysis:
+The six arrows in the diagram above represent the six cross-layer failure paths that the three-layer analysis traces during every analysis:
 
-上の図の6本の矢印は、Anatomy Engineがすべての分析中に追跡する6つのレイヤー間失敗パスを表す：
+上の図の6本の矢印は、3層分析がすべての分析中に追跡する6つのレイヤー間失敗パスを表す：
 
 - **Surface → Mechanism**: Ambiguous language creates unhandled conditional branches. (曖昧な言語が処理されていない条件分岐を生む。)
 - **Mechanism → Incentive**: Logical gaps expose goal misalignment. (論理的な穴が目標の不整合を露出させる。)
@@ -94,13 +96,13 @@ In **Phase 3**, Layer 1 asks "does this prompt have the right temperature?" — 
 
 **Phase 3**では、Layer 1は「このプロンプトは正しい温度を持っているか？」と問う — 曖昧性の排除ではなく質感の洗練。Layer 2は「非自明な接続はないか？」と問う — 論理のストレステストではなく概念の架橋。Layer 3は「これは正しい目標か？」と問う — 目的の検証ではなく問いかけ。
 
-Same skeleton. Different eyes. This is the Anatomy Engine's design.
+Same skeleton. Different eyes. This is the three-layer analysis design.
 
-同じ骨格。異なる眼。これがAnatomy Engineの設計である。
+同じ骨格。異なる眼。これが3層分析の設計である。
 
 ---
 
-**Document Version**: 1.0
+**Document Version**: 1.1
 **Author**: Shigechika Kurihara (栗原栄親)
 
 © 2026 Shigechika Kurihara. All Rights Reserved.

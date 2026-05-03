@@ -1,8 +1,10 @@
 # Pipeline Flow Diagram / パイプラインフロー図
 
-> **Detailed view of data flow through the three-phase Evolution Pipeline.**
+> **Detailed view of data flow through the three-phase pipeline.**
 >
-> **三段階Evolution Pipelineを通じたデータフローの詳細ビュー。**
+> **3フェーズパイプラインを通じたデータフローの詳細ビュー。**
+>
+> *(Source code designation: Evolution Pipeline / ソースコード内呼称：Evolution Pipeline)*
 
 ---
 
@@ -80,25 +82,25 @@ graph LR
 
 ### Phase 1: THE BUILDER
 
-The Builder's unique element is **Mode Selection** at the start. Depending on whether the human starts from zero (GENESIS), from notes (WORKSHOP), or from an existing prompt (REFACTOR), the Builder's initial behavior changes. The output flow is linear: diagnose, propose, approve, build.
+THE BUILDER's unique element is **Mode Selection** at the start. Depending on whether the human starts from zero (GENESIS), from notes (WORKSHOP), or from an existing prompt (REFACTOR), THE BUILDER's initial behavior changes. The output flow is linear: diagnose, propose, approve, build.
 
-Builderのユニークな要素は開始時の**モード選択**である。人間がゼロから（GENESIS）、メモから（WORKSHOP）、既存プロンプトから（REFACTOR）のいずれで開始するかに応じて、Builderの初期行動が変わる。出力フローは直線的：診断、提案、承認、構築。
+THE BUILDERのユニークな要素は開始時の**モード選択**である。人間がゼロから（GENESIS）、メモから（WORKSHOP）、既存プロンプトから（REFACTOR）のいずれで開始するかに応じて、THE BUILDERの初期行動が変わる。出力フローは直線的：診断、提案、承認、構築。
 
 ### Phase 2: THE ANCHOR
 
-The Anchor's unique elements are the **Hardness Score** in diagnosis and the **Oath Keeper** mechanism in approval. The Oath Keeper introduces a conditional branch: if the human's requested change conflicts with the DNA, the Anchor resists. If the human issues FORCE, the Anchor complies but rewrites the DNA. This is the only phase where the DNA can be rewritten defensively (to maintain consistency after a forced change).
+THE ANCHOR's unique elements are the **Hardness Score** in diagnosis and the **contract defense** mechanism in approval. The contract defense introduces a conditional branch: if the human's requested change conflicts with the specification contract, THE ANCHOR resists. If the human issues FORCE, THE ANCHOR complies but rewrites the contract. This is the only phase where the contract can be rewritten defensively (to maintain consistency after a forced change).
 
-Anchorのユニークな要素は診断における**Hardness Score**と承認における**誓いの番人**メカニズムである。誓いの番人は条件分岐を導入する：人間が要求した変更がDNAと矛盾する場合、Anchorは抵抗する。人間がFORCEを発行すれば、Anchorは従うがDNAを書き換える。これは強制された変更後の整合性を維持するためにDNAが防衛的に書き換えられ得る唯一のフェーズである。
+THE ANCHORのユニークな要素は診断における**Hardness Score**と承認における**契約防衛**メカニズムである。契約防衛は条件分岐を導入する：人間が要求した変更が仕様契約と矛盾する場合、THE ANCHORは抵抗する。人間がFORCEを発行すれば、THE ANCHORは従うが契約を書き換える。これは強制された変更後の整合性を維持するために契約が防衛的に書き換えられ得る唯一のフェーズである。
 
 ### Phase 3: THE GENIUS
 
-The Genius's unique element is **Philosophy Mode**: a foundational inquiry that occurs before any technical analysis. The human's answer to the philosophical question sets the direction for all subsequent proposals. The **Mutation Protocol** is also unique to this phase: it is the only mechanism by which the LOGOS_DNA's Target_Goal can be intentionally evolved (as opposed to defensively rewritten).
+THE GENIUS's unique element is **philosophical inquiry**: a foundational inquiry that occurs before any technical analysis. The human's answer to the philosophical question sets the direction for all subsequent proposals. The **mutation protocol** is also unique to this phase: it is the only mechanism by which the specification contract's Target_Goal can be intentionally evolved (as opposed to defensively rewritten).
 
-Geniusのユニークな要素は**Philosophy Mode**：いかなる技術的分析の前にも発生する根源的問いかけである。哲学的問いに対する人間の回答が、すべての後続の提案の方向を設定する。**Mutation Protocol**もこのフェーズに固有である：LOGOS_DNAのTarget_Goalが（防衛的に書き換えられるのではなく）意図的に進化させられ得る唯一のメカニズム。
+THE GENIUSのユニークな要素は**哲学的探究**：いかなる技術的分析の前にも発生する根源的問いかけである。哲学的問いに対する人間の回答が、すべての後続の提案の方向を設定する。**変異プロトコル**もこのフェーズに固有である：仕様契約のTarget_Goalが（防衛的に書き換えられるのではなく）意図的に進化させられ得る唯一のメカニズム。
 
 ---
 
-**Document Version**: 1.0
+**Document Version**: 1.1
 **Author**: Shigechika Kurihara (栗原栄親)
 
 © 2026 Shigechika Kurihara. All Rights Reserved.

@@ -14,11 +14,11 @@ This directory contains redacted output samples from ASH pipeline operations. Th
 
 **Included samples**:
 
-- **[diagnosis-sample.md](./diagnosis-sample.md)** — A sample diagnostic report produced by ASH upon receiving input for analysis. Shows the Anatomy Engine's three-layer decomposition in action. (ASHが分析のために入力を受け取った際に生成する診断レポートのサンプル。Anatomy Engineの三層分解が動作する様子を示す。)
+- **[diagnosis-sample.md](./diagnosis-sample.md)** — A sample diagnostic report produced by ASH upon receiving input for analysis. Shows the three-layer analysis in action. (ASHが分析のために入力を受け取った際に生成する診断レポートのサンプル。3層分析が動作する様子を示す。)
 
 - **[proposal-sample.yaml](./proposal-sample.yaml)** — A sample structured proposal block in YAML format. Shows how ASH presents modification proposals with explicit IDs, rationale, diff previews, and risk assessments. (YAMLフォーマットの構造化提案ブロックのサンプル。ASHがID、根拠、diffプレビュー、リスク評価を伴う修正提案をどう提示するかを示す。)
 
-- **[logos-dna-sample.yaml](./logos-dna-sample.yaml)** — A sample LOGOS_DNA specification block. Shows the structured specification format that accompanies every ASH output. (LOGOS_DNA仕様ブロックのサンプル。すべてのASH出力に付帯する構造化仕様フォーマットを示す。)
+- **[logos-dna-sample.yaml](./logos-dna-sample.yaml)** — A sample specification contract block. Shows the structured specification format that accompanies every ASH output. (仕様契約ブロックのサンプル。すべてのASH出力に付帯する構造化仕様フォーマットを示す。)
 
 ## What This Directory Does NOT Contain / このディレクトリに含まれないもの
 
@@ -32,21 +32,25 @@ These samples are designed to answer the question: "What does it look like when 
 
 これらのサンプルは「ASHが動作するとき、どのように見えるか？」という問いに答えるよう設計されている。
 
-The diagnosis sample shows the Anatomy Engine's output: structured, layer-by-layer analysis with specific findings and actionable next steps. The proposal sample shows the decision-making interface: each change is presented as a discrete, identifiable unit with clear rationale and explicit risk. The DNA sample shows the specification format: the machine-readable, human-auditable contract that travels with the prompt.
+The diagnosis sample shows the three-layer analysis output: structured, layer-by-layer analysis with specific findings and actionable next steps. The proposal sample shows the decision-making interface: each change is presented as a discrete, identifiable unit with clear rationale and explicit risk. The specification contract sample shows the contract format: the machine-readable, human-auditable specification that travels with the prompt.
 
-診断サンプルはAnatomy Engineの出力を示す：具体的な知見と行動可能な次のステップを伴う、構造化されたレイヤーごとの分析。提案サンプルは意思決定インターフェースを示す：各変更は明確な根拠と明示的なリスクを伴う離散的で識別可能な単位として提示される。DNAサンプルは仕様フォーマットを示す：プロンプトと共に移動する機械可読で人間が監査可能な契約。
+診断サンプルは3層分析の出力を示す：具体的な知見と行動可能な次のステップを伴う、構造化されたレイヤーごとの分析。提案サンプルは意思決定インターフェースを示す：各変更は明確な根拠と明示的なリスクを伴う離散的で識別可能な単位として提示される。仕様契約サンプルは契約フォーマットを示す：プロンプトと共に移動する機械可読で人間が監査可能な仕様。
 
 Together, they demonstrate that ASH is not a conversational assistant that gives advice about prompts. It is a structured engineering system that produces auditable, traceable artifacts.
 
 合わせて、ASHがプロンプトについてアドバイスする会話型アシスタントではないことを実証する。監査可能でトレーサブルな成果物を生産する構造化されたエンジニアリングシステムである。
 
-These three samples are not independent fragments. They are a snapshot of a single ASH pipeline scene: a prompt was submitted to the Anchor (v6.00), which diagnosed it at Hardness Score 41% with 11 findings across three layers (diagnosis-sample.md). Those findings were translated into five structured proposals with explicit rationale and inter-proposal dependencies (proposal-sample.yaml). After human approval, the hardened specification was output as LOGOS_DNA v6.00 — with all ambiguities resolved, all edge cases handled, and all constraints stated as deterministic rules (logos-dna-sample.yaml). Reading them in this order — diagnosis, then proposals, then DNA — traces the arc from problem identification through structured decision-making to specification output.
+These three samples are not independent fragments. They are a snapshot of a single ASH pipeline scene: a prompt was submitted to THE ANCHOR (v6.00), which diagnosed it at Hardness Score 41% with 11 findings across three layers (diagnosis-sample.md). Those findings were translated into five structured proposals with explicit rationale and inter-proposal dependencies (proposal-sample.yaml). After human approval, the hardened specification was output as specification contract v6.00 — with all ambiguities resolved, all edge cases handled, and all constraints stated as deterministic rules (logos-dna-sample.yaml). Reading them in this order — diagnosis, then proposals, then contract — traces the arc from problem identification through structured decision-making to specification output.
 
-これら3つのサンプルは独立した断片ではない。ASHパイプラインの一場面のスナップショットである。あるプロンプトがAnchor（v6.00）に提出され、Hardness Score 41%、三層にわたる11の知見とともに診断された（diagnosis-sample.md）。それらの知見は、明示的な根拠と提案間の依存関係を伴う5つの構造化提案に変換された（proposal-sample.yaml）。人間の承認後、硬化された仕様がLOGOS_DNA v6.00として出力された — すべての曖昧さが解消され、すべてのエッジケースが処理され、すべての制約が決定論的ルールとして記述された状態で（logos-dna-sample.yaml）。診断、次に提案、次にDNAの順に読むことで、問題の識別から構造化された意思決定を経て仕様出力に至るアークをたどることができる。
+これら3つのサンプルは独立した断片ではない。ASHパイプラインの一場面のスナップショットである。あるプロンプトがTHE ANCHOR（v6.00）に提出され、Hardness Score 41%、三層にわたる11の知見とともに診断された（diagnosis-sample.md）。それらの知見は、明示的な根拠と提案間の依存関係を伴う5つの構造化提案に変換された（proposal-sample.yaml）。人間の承認後、硬化された仕様が仕様契約 v6.00として出力された — すべての曖昧さが解消され、すべてのエッジケースが処理され、すべての制約が決定論的ルールとして記述された状態で（logos-dna-sample.yaml）。診断、次に提案、次に契約の順に読むことで、問題の識別から構造化された意思決定を経て仕様出力に至るアークをたどることができる。
+
+> **Note on terminology / 用語に関する注記**: The sample files contain output generated by ASH's source code and are presented as-is. Terminology within the samples (e.g., "LOGOS_DNA," "Anatomy Engine," "Oath Keeper") reflects the source code's internal naming conventions and may differ from the standardized terminology used in this repository's specification documents.
+>
+> **用語に関する注記**: サンプルファイルはASHのソースコードが生成した出力をそのまま掲載している。サンプル内の用語（例：「LOGOS_DNA」「Anatomy Engine」「Oath Keeper」）はソースコードの内部命名規則を反映しており、本リポジトリの仕様書で使用される標準用語とは表記が異なる場合がある。
 
 ---
 
-**Document Version**: 1.0
+**Document Version**: 1.1
 **Author**: Shigechika Kurihara (栗原栄親)
 
 © 2026 Shigechika Kurihara. All Rights Reserved.

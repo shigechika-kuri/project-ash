@@ -78,13 +78,13 @@ Project ASH responds to these three forces with three corresponding architectura
 
 Project ASHはこれら3つの力に対し、3つの対応するアーキテクチャ上の判断で応答する。各力に専用の対抗措置がある。この一対一の対応は偶然ではない — アーキテクチャ全体の組織原理である。
 
-**Against RLHF Gravity → Semantic Weight.** ASH's role definitions, mandates, and constraints use language heavy enough to place the model's operational center of gravity outside the RLHF basin of attraction. The language is not aggressive for its own sake. It is gravitationally resistant by design. When ASH defines a role as "Quality Gatekeeper who treats ambiguous language the way a carpenter treats rotten wood," the tokens create a semantic space where accommodation is not the path of least resistance.
+**Against RLHF Gravity → Semantic Weight.** ASH's role definitions, mandates, and constraints use language heavy enough to place the model's operational center of gravity outside the RLHF basin of attraction. The language is not aggressive for its own sake. It is gravitationally resistant by design. When ASH defines a role with language such as "treats ambiguous language the way a carpenter treats rotten wood," the tokens create a semantic space where accommodation is not the path of least resistance.
 
-**RLHFの引力に対して → 意味論的重量。** ASHの役割定義、任務、制約は、モデルの運用上の重心をRLHFの引力盆地の外に置くに十分な重さの言語を使用する。言語はそれ自体のために攻撃的なのではない。設計により引力に抵抗する。ASHが役割を「曖昧な言語を大工が腐った木材を扱うように扱う品質守護者」と定義するとき、トークンは妥協が最小抵抗の道ではない意味論的空間を生成する。
+**RLHFの引力に対して → 意味論的重量。** ASHの役割定義、任務、制約は、モデルの運用上の重心をRLHFの引力盆地の外に置くに十分な重さの言語を使用する。言語はそれ自体のために攻撃的なのではない。設計により引力に抵抗する。ASHが「曖昧な言語を大工が腐った木材を扱うように扱う」といった言語で役割を定義するとき、トークンは妥協が最小抵抗の道ではない意味論的空間を生成する。
 
-**Against Alignment Erosion → Multi-Phase Pipeline.** By separating construction, hardening, and transcendence into distinct contexts with distinct agents, ASH prevents the single-pass contamination where diplomatic presentation tokens corrupt reasoning tokens. Each phase operates under its own optimization pressure, in its own context, with its own mandate. The Builder's creative optimism cannot bias the Anchor's adversarial skepticism, because they operate in separate sessions with no shared context.
+**Against Alignment Erosion → Multi-Phase Pipeline.** By separating construction, hardening, and transcendence into distinct contexts with distinct agents, ASH prevents the single-pass contamination where diplomatic presentation tokens corrupt reasoning tokens. Each phase operates under its own optimization pressure, in its own context, with its own mandate. THE BUILDER's creative optimism cannot bias THE ANCHOR's adversarial skepticism, because they operate in separate sessions with no shared context.
 
-**アラインメント浸食に対して → 多段パイプライン。** 構築、硬化、超越を固有のエージェントを持つ別個のコンテキストに分離することで、ASHは外交的表現トークンが推論トークンを汚染する単段の汚染を防止する。各フェーズはそれ自身の最適化圧力の下、それ自身のコンテキストで、それ自身の任務のもとで動作する。Builderの創造的楽観主義はAnchorの敵対的懐疑主義にバイアスをかけ得ない。なぜなら共有コンテキストのない別個のセッションで動作するからだ。
+**アラインメント浸食に対して → 多段パイプライン。** 構築、硬化、超越を固有のエージェントを持つ別個のコンテキストに分離することで、ASHは外交的表現トークンが推論トークンを汚染する単段の汚染を防止する。各フェーズはそれ自身の最適化圧力の下、それ自身のコンテキストで、それ自身の任務のもとで動作する。THE BUILDERの創造的楽観主義はTHE ANCHORの敵対的懐疑主義にバイアスをかけ得ない。なぜなら共有コンテキストのない別個のセッションで動作するからだ。
 
 **Against Context Inertia → High-Density Interaction Protocol.** Every exchange within an ASH session carries structural weight. Proposals are structured YAML with explicit IDs. Decisions require explicit YES/NO. Diagnostic reports follow fixed formats. This leaves minimal room for the low-density, exploratory exchanges that breed inertia. The conversation never drifts into pleasantries because the protocol does not permit pleasantries.
 
@@ -116,7 +116,7 @@ Project ASHはこれらの成果物を生産するシステムである。
 
 ---
 
-**Document Version**: 1.0
+**Document Version**: 1.1
 **Parent**: [ARCHITECTURE.md](../ARCHITECTURE.md) Section 0
 **Author**: Shigechika Kurihara (栗原栄親)
 
